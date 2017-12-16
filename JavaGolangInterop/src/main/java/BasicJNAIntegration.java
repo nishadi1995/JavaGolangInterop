@@ -32,7 +32,7 @@ public class BasicJNAIntegration {
     }
     
     void goBase64() {
-        MyLib myLib = Native.loadLibrary("/home/kanishka/work/my/golang/interop/mylib.so", MyLib.class);
+        MyLib myLib = Native.loadLibrary("lib/x64/mylib.so", MyLib.class);
 //
 //        System.out.println("10+20=" + myLib.Add(10, 20));
 //        System.out.println("Cos(60)=" + myLib.Cos(60));
