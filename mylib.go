@@ -7,8 +7,24 @@ import (
 	"math"
 )
 
+var num = 10
+
+//export SetNum
+func SetNum(n int) {
+	num = n
+}
+
+//export GetNum
+func GetNum() int {
+	return num
+}
+
 //export Add
-func Add(a, b int) int {
+func Add(a, b int) int {func Base64(str string) *C.char {
+	x := base64.StdEncoding.EncodeToString([]byte(str))
+	return C.CString(x)
+}
+
 	return a + b
 }
 
