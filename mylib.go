@@ -4,7 +4,9 @@ import "C"
 
 import (
 	"encoding/base64"
+	"io"
 	"math"
+	"os"
 )
 
 var num = 10
@@ -20,11 +22,7 @@ func GetNum() int {
 }
 
 //export Add
-func Add(a, b int) int {func Base64(str string) *C.char {
-	x := base64.StdEncoding.EncodeToString([]byte(str))
-	return C.CString(x)
-}
-
+func Add(a, b int) int {
 	return a + b
 }
 
@@ -46,6 +44,28 @@ func Sum(numbers []int) int {
 		total += num
 	}
 	return total
+}
+
+//export ByteTest
+func ByteTest(data []byte) {
+	f, _ := os.Create("/tmp/goRandFile")
+	defer f.Close()
+
+	f.Write(data)
+}
+
+//export FilePassTest
+func FilePassTest(filePath []byte) {
+	inputFile := string(filePath)
+	outputFile := "/tmp/goRandFile"
+
+	inFile, _ := os.Open(inputFile)
+	defer inFile.Close()
+
+	outFile, _ := os.Create(outputFile)
+	defer outFile.Close()
+
+	io.Copy(outFile, inFile)
 }
 
 func main() {}

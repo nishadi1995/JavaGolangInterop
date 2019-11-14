@@ -3,11 +3,12 @@
  */
 public class Main {
 
-    public static void main(String[] args) {
-        new Main().testBasicJNAIntegration();
+    public static void main(String[] args) throws Exception {
+//        new Main().testBasicJNAIntegration();
+        new Main().testJNAArrays();
     }
     
-    private void testJNAArrays() {
+    private void testJNAArrays() throws Exception {
         new JNAArrayIntegration().test();
     }
 

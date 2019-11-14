@@ -45,4 +45,8 @@ public interface MyLib extends Library {
     public GoString.ByValue Base64(GoString.ByValue str);
 
     public long Sum(GoSlice.ByValue nums);
+
+    public void ByteTest(GoSlice.ByValue data);
+
+    public void FilePassTest(GoSlice.ByValue data);
 }
